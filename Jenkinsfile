@@ -21,7 +21,15 @@ pipeline {
         stage('Install node packages'){
             steps{
                 sh 'npm install'
+                sh 'npm install mongodb'
+                sh 'npm install -g webpack'
            }
+       }
+       stage('Build') {
+            steps {
+                echo 'Running the build...'
+                sh 'npm run build'
+            }
        }
         stage('Deploy to Heroku'){
             steps{
@@ -31,3 +39,4 @@ pipeline {
        }
     }
 }
+
