@@ -26,9 +26,8 @@ pipeline {
         stage('Deploy to Heroku'){
             steps{
                 withCredentials([usernameColonPassword(credentialsId: '46a17513-9c50-4c1e-aaae-fbd37c40a96b', variable: 'HEROKU_CREDENTIALS')]) {
-                sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/gallerapp.git master' }
+                sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/gallercluster.git master' }
            }
        }
-
     }
 }
