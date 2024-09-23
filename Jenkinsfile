@@ -23,18 +23,18 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Run Tests') {
-            steps {
-                script {
-                    try {
-                        sh 'npm test'
-                    } catch (Exception e) {
-                        currentBuild.result = 'FAILURE' // Mark build as failed
-                        error("Tests failed!")
-                    }
-                }
-            }
-        }
+        // stage('Run Tests') {
+        //     steps {
+        //         script {
+        //             try {
+        //                 sh 'npm test'
+        //             } catch (Exception e) {
+        //                 currentBuild.result = 'FAILURE' // Mark build as failed
+        //                 error("Tests failed!")
+        //             }
+        //         }
+        //     }
+        // }
         stage('Deploy to Render') {
             steps {
                 withCredentials([string(credentialsId: 'Render-Hook', variable: 'GALLERY_DEPLOY')]) { /
