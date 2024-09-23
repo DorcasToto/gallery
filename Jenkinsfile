@@ -38,7 +38,6 @@ pipeline {
                     } catch (Exception e) {
                         testFailed = true
                         currentBuild.result = 'FAILURE' // Mark build as failed
-                        TEST_FAILED = true
                         error("Tests failed!")
                     }
                 }
