@@ -39,9 +39,9 @@ pipeline {
         }
         stage('Deploy to Render') {
             steps {
-                withCredentials([string(credentialsId: 'JENKINS-RENDER', variable: 'GALLERY-DEPLOY')]) {
+                withCredentials([string(credentialsId: 'Render-Hook', variable: 'GALLERY_DEPLOY')]) {
                     sh """
-                    curl -X POST ${GALLERY-DEPLOY}
+                    curl -X POST ${GALLERY_DEPLOY}
                     """
                 } 
             }
